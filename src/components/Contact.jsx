@@ -43,7 +43,6 @@ export default function Contact() {
             href="https://github.com/EricK-6"
             external
           />
-          <ContactLink label="Phone" value="+64 27 283 0632" href="tel:+64272830632" />
         </div>
 
         <form
