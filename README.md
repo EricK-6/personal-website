@@ -2,7 +2,7 @@
 
 Personal CV / portfolio website for **Dohyun (Eric) Kim**, a Computer Systems Engineering (Hons) student at the University of Auckland. Built as a single-page site for internship applications.
 
-**Live:** _(add URL after deploy)_
+**Live:** https://erick-6.github.io/personal-website/
 
 ---
 
