@@ -15,6 +15,7 @@ const PROJECTS = [
     ],
     tech: ['Python', 'Embedded C', 'ChatGPT API', 'OpenCV', 'Servos'],
     image: './winnie.jpg',
+    featured: true,
     color: 'from-amber-500/20 to-rose-500/20',
     initial: 'W',
     links: [],
@@ -126,9 +127,9 @@ export default function Projects() {
 }
 
 function ProjectCard({ project }) {
-  const { title, tag, year, role, description, highlights, tech, color, initial, image, links } = project
+  const { title, tag, year, role, description, highlights, tech, color, initial, image, featured, links } = project
   return (
-    <article className="card flex flex-col overflow-hidden">
+    <article className={`card flex flex-col overflow-hidden ${featured ? 'ring-2 ring-amber-400/60 dark:ring-amber-500/40' : ''}`}>
       <div className={`relative -m-6 mb-6 h-44 overflow-hidden ${image ? 'bg-zinc-100 dark:bg-zinc-800' : `bg-gradient-to-br ${color} flex items-center justify-center`}`}>
         {image ? (
           <img src={image} alt={title} className="h-full w-full object-cover" />
@@ -144,7 +145,12 @@ function ProjectCard({ project }) {
       </div>
 
       <div className="flex-1 flex flex-col">
-        <div className="text-xs font-medium uppercase tracking-widest text-accent dark:text-accent-dark">
+        <div className={`flex items-center gap-1.5 text-xs font-medium uppercase tracking-widest ${featured ? 'text-amber-600 dark:text-amber-400' : 'text-accent dark:text-accent-dark'}`}>
+          {featured && (
+            <svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            </svg>
+          )}
           {tag}
         </div>
         <h3 className="mt-1 text-xl font-semibold">{title}</h3>
