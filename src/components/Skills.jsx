@@ -4,18 +4,23 @@ import Reveal from './Reveal.jsx'
 const GROUPS = [
   {
     label: 'Languages',
+    span: 'sm:col-span-2 lg:col-span-5',
+    accent: true,
     items: ['Java', 'C', 'Python', 'JavaScript'],
   },
   {
     label: 'Frameworks & Tools',
+    span: 'sm:col-span-2 lg:col-span-7',
     items: ['React.js', 'Git', 'Maven', 'JUnit', 'Figma', 'AWS'],
   },
   {
     label: 'Hardware & EDA',
+    span: 'sm:col-span-2 lg:col-span-7',
     items: ['Atmel AVR', 'Altium Designer', 'LTspice', 'Arduino IDE', 'Quartus Prime'],
   },
   {
     label: 'Other',
+    span: 'sm:col-span-2 lg:col-span-5',
     items: ['MATLAB', 'VHDL', 'PyQt'],
   },
 ]
@@ -23,13 +28,19 @@ const GROUPS = [
 export default function Skills() {
   return (
     <Section id="skills" kicker="Skills" title="What I work with">
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-12">
         {GROUPS.map((g, i) => (
-          <Reveal key={g.label} delay={i * 80} className="card">
-            <h3 className="text-sm font-semibold uppercase tracking-widest text-zinc-500 dark:text-zinc-500">
+          <Reveal key={g.label} delay={i * 80} className={`card relative overflow-hidden ${g.span}`}>
+            {g.accent && (
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full bg-gradient-to-br from-blue-400/20 via-indigo-400/10 to-transparent blur-2xl dark:from-blue-500/20 dark:via-indigo-500/10"
+              />
+            )}
+            <h3 className="relative text-sm font-semibold uppercase tracking-widest text-zinc-500 dark:text-zinc-500">
               {g.label}
             </h3>
-            <div className="mt-3 flex flex-wrap gap-2">
+            <div className="relative mt-3 flex flex-wrap gap-2">
               {g.items.map((item) => (
                 <span
                   key={item}
