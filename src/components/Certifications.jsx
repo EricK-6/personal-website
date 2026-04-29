@@ -15,12 +15,12 @@ const CERTS = [
 export default function Certifications() {
   return (
     <Section id="certifications" kicker="Certifications" title="Credentials">
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-12">
+      <div className="grid gap-4">
         {CERTS.map((c, i) => (
           <Reveal
             key={c.name}
             delay={i * 80}
-            className="card relative overflow-hidden sm:col-span-2 lg:col-span-8"
+            className="card relative overflow-hidden"
           >
             <div
               aria-hidden="true"
@@ -56,23 +56,6 @@ export default function Certifications() {
             )}
           </Reveal>
         ))}
-
-        <Reveal
-          delay={120}
-          className="card relative overflow-hidden sm:col-span-2 lg:col-span-4 flex flex-col justify-between"
-        >
-          <div className="text-xs font-medium uppercase tracking-widest text-zinc-500 dark:text-zinc-500">
-            Approach
-          </div>
-          <div>
-            <div className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
-              Always learning
-            </div>
-            <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              Credentials matter, but they're a checkpoint — not the destination. I treat each cert as a structured way to deepen what I already touch in projects.
-            </p>
-          </div>
-        </Reveal>
       </div>
     </Section>
   )
