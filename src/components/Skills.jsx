@@ -1,4 +1,5 @@
 import Section from './Section.jsx'
+import Reveal from './Reveal.jsx'
 
 const GROUPS = [
   {
@@ -23,8 +24,8 @@ export default function Skills() {
   return (
     <Section id="skills" kicker="Skills" title="What I work with">
       <div className="grid gap-6 sm:grid-cols-2">
-        {GROUPS.map((g) => (
-          <div key={g.label} className="card">
+        {GROUPS.map((g, i) => (
+          <Reveal key={g.label} delay={i * 80} className="card">
             <h3 className="text-sm font-semibold uppercase tracking-widest text-zinc-500 dark:text-zinc-500">
               {g.label}
             </h3>
@@ -38,7 +39,7 @@ export default function Skills() {
                 </span>
               ))}
             </div>
-          </div>
+          </Reveal>
         ))}
       </div>
     </Section>

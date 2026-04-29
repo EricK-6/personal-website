@@ -1,4 +1,5 @@
 import Section from './Section.jsx'
+import Reveal from './Reveal.jsx'
 
 const PROJECTS = [
   {
@@ -114,8 +115,10 @@ export default function Projects() {
       subtitle="A mix of hardware, software, and everything in between. Each project stretched a different part of the Computer Systems Engineering stack."
     >
       <div className="grid gap-6 md:grid-cols-2">
-        {PROJECTS.map((p) => (
-          <ProjectCard key={p.title} project={p} />
+        {PROJECTS.map((p, i) => (
+          <Reveal key={p.title} delay={i * 80}>
+            <ProjectCard project={p} />
+          </Reveal>
         ))}
       </div>
 

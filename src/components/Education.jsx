@@ -1,4 +1,5 @@
 import Section from './Section.jsx'
+import Reveal from './Reveal.jsx'
 
 const COURSEWORK = [
   'Computer Systems Design',
@@ -12,7 +13,7 @@ const COURSEWORK = [
 export default function Education() {
   return (
     <Section id="education" kicker="Education" title="Academic background">
-      <div className="card">
+      <Reveal className="card">
         <div className="flex flex-wrap items-baseline justify-between gap-2">
           <h3 className="text-lg font-semibold">
             University of Auckland ·{' '}
@@ -39,7 +40,7 @@ export default function Education() {
             ))}
           </div>
         </div>
-      </div>
+      </Reveal>
     </Section>
   )
 }

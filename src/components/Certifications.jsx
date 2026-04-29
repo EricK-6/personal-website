@@ -1,4 +1,5 @@
 import Section from './Section.jsx'
+import Reveal from './Reveal.jsx'
 
 const CERTS = [
   {
@@ -14,8 +15,8 @@ export default function Certifications() {
   return (
     <Section id="certifications" kicker="Certifications" title="Credentials">
       <div className="grid gap-4 sm:grid-cols-2">
-        {CERTS.map((c) => (
-          <div key={c.name} className="card">
+        {CERTS.map((c, i) => (
+          <Reveal key={c.name} delay={i * 80} className="card">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <h3 className="font-semibold">{c.name}</h3>
@@ -28,7 +29,7 @@ export default function Certifications() {
             <p className="mt-3 text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
               {c.description}
             </p>
-          </div>
+          </Reveal>
         ))}
       </div>
     </Section>

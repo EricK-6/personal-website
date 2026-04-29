@@ -1,4 +1,5 @@
 import Section from './Section.jsx'
+import Reveal from './Reveal.jsx'
 
 const EXPERIENCE = [
   {
@@ -25,8 +26,8 @@ export default function Experience() {
   return (
     <Section id="experience" kicker="Experience" title="Where I've worked">
       <ol className="relative border-l border-zinc-200 dark:border-zinc-800 pl-6 space-y-10">
-        {EXPERIENCE.map((job) => (
-          <li key={job.role + job.org} className="relative">
+        {EXPERIENCE.map((job, i) => (
+          <Reveal key={job.role + job.org} as="li" delay={i * 100} className="relative block">
             <span className="absolute -left-[29px] top-1.5 h-3 w-3 rounded-full bg-accent ring-4 ring-white dark:bg-accent-dark dark:ring-zinc-950" />
             <div className="flex flex-wrap items-baseline justify-between gap-2">
               <h3 className="text-lg font-semibold">
@@ -43,7 +44,7 @@ export default function Experience() {
                 </li>
               ))}
             </ul>
-          </li>
+          </Reveal>
         ))}
       </ol>
     </Section>

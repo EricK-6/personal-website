@@ -1,10 +1,11 @@
 import Section from './Section.jsx'
+import Reveal from './Reveal.jsx'
 
 export default function About() {
   return (
     <Section id="about" kicker="About" title="About me">
       <div className="grid gap-8 md:grid-cols-3">
-        <div className="md:col-span-2 space-y-4 text-zinc-700 dark:text-zinc-300 leading-relaxed">
+        <Reveal className="md:col-span-2 space-y-4 text-zinc-700 dark:text-zinc-300 leading-relaxed">
           <p>
             Kia ora! I'm a penultimate-year Computer Systems Engineering (Hons) student
             at the University of Auckland, passionate about software development and
@@ -27,9 +28,9 @@ export default function About() {
             summer 2026/27 internship where I can contribute to real systems and learn
             from strong engineers — embedded, full-stack, or anywhere the two meet.
           </p>
-        </div>
+        </Reveal>
 
-        <aside className="space-y-4">
+        <Reveal as="aside" delay={120} className="space-y-4 block">
           <div className="card">
             <div className="text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-500">
               Quick facts
@@ -42,7 +43,7 @@ export default function About() {
               <Fact label="Availability" value="Summer 2026/27" />
             </dl>
           </div>
-        </aside>
+        </Reveal>
       </div>
     </Section>
   )

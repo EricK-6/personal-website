@@ -1,4 +1,5 @@
 import Section from './Section.jsx'
+import Reveal from './Reveal.jsx'
 import { useState } from 'react'
 
 const EMAIL = 'dohyunkim290106@gmail.com'
@@ -56,13 +57,13 @@ export default function Contact() {
       subtitle="Fill in the form and I'll get back to you, or reach me directly via the links below."
     >
       <div className="grid gap-8 md:grid-cols-5">
-        <div className="md:col-span-2 space-y-4">
+        <Reveal className="md:col-span-2 space-y-4">
           <ContactLink label="Email" value={EMAIL} href={`mailto:${EMAIL}`} />
           <ContactLink label="LinkedIn" value="linkedin.com/in/erick06" href="https://www.linkedin.com/in/erick06/" external />
           <ContactLink label="GitHub" value="github.com/EricK-6" href="https://github.com/EricK-6" external />
-        </div>
+        </Reveal>
 
-        <form className="md:col-span-3 card space-y-4" onSubmit={handleSubmit} noValidate>
+        <Reveal as="form" delay={120} className="md:col-span-3 card space-y-4 block" onSubmit={handleSubmit} noValidate>
           {status === 'success' && (
             <div className="rounded-lg bg-emerald-50 border border-emerald-200 px-4 py-3 text-sm text-emerald-800 dark:bg-emerald-950/40 dark:border-emerald-800 dark:text-emerald-300">
               Message sent — I'll be in touch soon!
@@ -118,7 +119,7 @@ export default function Contact() {
             </button>
             <a href={`mailto:${EMAIL}`} className="btn-secondary">Just email me directly</a>
           </div>
-        </form>
+        </Reveal>
       </div>
     </Section>
   )
