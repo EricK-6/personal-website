@@ -14,9 +14,10 @@ const PROJECTS = [
       'Servo-based expressive movement',
     ],
     tech: ['Python', 'Embedded C', 'ChatGPT API', 'OpenCV', 'Servos'],
+    image: './winnie.jpg',
     color: 'from-amber-500/20 to-rose-500/20',
     initial: 'W',
-    href: null, // add repo/demo link once public
+    links: [],
   },
   {
     title: 'Smart Energy Monitor',
@@ -31,9 +32,12 @@ const PROJECTS = [
       'ADC pipeline with signal conditioning',
     ],
     tech: ['ATmega', 'Embedded C', 'Altium', 'LTspice', 'ADC'],
+    image: './energy-monitor.png',
     color: 'from-emerald-500/20 to-teal-500/20',
     initial: 'E',
-    href: null,
+    links: [
+      { label: 'View project', href: 'https://github.com/uoa-ece209-2025/ec209-2025-labs-dkim766' },
+    ],
   },
   {
     title: 'KEB Project Playground',
@@ -48,9 +52,32 @@ const PROJECTS = [
       'Responsive interactive layouts',
     ],
     tech: ['React', 'JavaScript', 'Figma', 'HTML/CSS'],
+    image: './keb.png',
     color: 'from-sky-500/20 to-indigo-500/20',
     initial: 'K',
-    href: null,
+    links: [
+      { label: 'View project', href: 'https://github.com/Patrick-Sheng/keb-project' },
+    ],
+  },
+  {
+    title: 'RoastWorks Analytics',
+    tag: 'Team Project',
+    year: '2026',
+    role: 'Team · Data & analytics',
+    description:
+      'A Python desktop analytics app built with PyQt6 and pandas that automated a full-day Excel reporting workflow into under 30 seconds. Includes three time-series forecasting models with holdout MAE/RMSE validation and configurable horizons.',
+    highlights: [
+      'Full-day Excel workflow reduced to <30 seconds',
+      'Three time-series forecasting models',
+      'Holdout MAE/RMSE validation with configurable horizons',
+    ],
+    tech: ['Python', 'PyQt6', 'pandas'],
+    image: './roastworks.png',
+    color: 'from-orange-500/20 to-amber-500/20',
+    initial: 'R',
+    links: [
+      { label: 'View project', href: 'https://github.com/COMPSYS302/project-python-cs302-2026-python-project-24' },
+    ],
   },
   {
     title: 'Java OOP Projects',
@@ -67,7 +94,13 @@ const PROJECTS = [
     tech: ['Java', 'Maven', 'JUnit', 'OOP', 'Graphs'],
     color: 'from-violet-500/20 to-fuchsia-500/20',
     initial: 'J',
-    href: null,
+    links: [
+      { label: 'Assignment 1', href: 'https://github.com/SOFTENG281-2025/assignment-1-dkim766' },
+      { label: 'Assignment 2', href: 'https://github.com/SOFTENG281-2025/assignment-2-dkim766' },
+      { label: 'Assignment 3', href: 'https://github.com/SOFTENG281-2025/assignment-3-dkim766' },
+      { label: 'Assignment 4', href: 'https://github.com/SOFTENG283/softeng283-assignment-3-dkim766' },
+      { label: 'Assignment 5', href: 'https://github.com/SOFTENG283/softeng283-assignment-4-dkim766' },
+    ],
   },
 ]
 
@@ -93,17 +126,18 @@ export default function Projects() {
 }
 
 function ProjectCard({ project }) {
-  const { title, tag, year, role, description, highlights, tech, color, initial, href } = project
+  const { title, tag, year, role, description, highlights, tech, color, initial, image, links } = project
   return (
     <article className="card flex flex-col overflow-hidden">
-      {/* Image placeholder — swap <div> for <img src="..."> when you have screenshots */}
-      <div
-        className={`relative -m-6 mb-6 h-44 overflow-hidden bg-gradient-to-br ${color} flex items-center justify-center`}
-      >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.25),transparent_50%)] dark:bg-[radial-gradient(circle_at_30%_20%,rgba(0,0,0,0.3),transparent_50%)]" />
-        <span className="relative text-6xl font-extrabold text-white/90 drop-shadow-sm">
-          {initial}
-        </span>
+      <div className={`relative -m-6 mb-6 h-44 overflow-hidden ${image ? 'bg-zinc-100 dark:bg-zinc-800' : `bg-gradient-to-br ${color} flex items-center justify-center`}`}>
+        {image ? (
+          <img src={image} alt={title} className="h-full w-full object-cover" />
+        ) : (
+          <>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.25),transparent_50%)] dark:bg-[radial-gradient(circle_at_30%_20%,rgba(0,0,0,0.3),transparent_50%)]" />
+            <span className="relative text-6xl font-extrabold text-white/90 drop-shadow-sm">{initial}</span>
+          </>
+        )}
         <span className="absolute top-3 right-3 rounded-full bg-white/80 px-2.5 py-1 text-xs font-medium text-zinc-800 backdrop-blur dark:bg-zinc-900/80 dark:text-zinc-200">
           {year}
         </span>
@@ -140,15 +174,20 @@ function ProjectCard({ project }) {
           </div>
         )}
 
-        {href && (
-          <a
-            href={href}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-accent hover:underline dark:text-accent-dark"
-          >
-            View project →
-          </a>
+        {links?.length > 0 && (
+          <div className="mt-5 flex flex-wrap gap-4">
+            {links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1 text-sm font-medium text-accent hover:underline dark:text-accent-dark"
+              >
+                {l.label} →
+              </a>
+            ))}
+          </div>
         )}
       </div>
     </article>

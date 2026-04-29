@@ -2,12 +2,12 @@ import Section from './Section.jsx'
 
 const EXPERIENCE = [
   {
-    role: 'Robotics Coach',
+    role: 'Robotics Instructor',
     org: 'Creative Imaginary Lab (ciLab)',
     period: 'Apr 2026 – Present',
     bullets: [
-      'Deliver robotics programs covering hardware, software, and Arduino C.',
-      'Teach students coding mechanisms and foundational embedded concepts in a structured, hands-on format.',
+      'Design and deliver hands-on robotics curriculum for students aged 8–16, covering embedded programming, sensor integration, and competition strategy.',
+      'Multiple student teams have advanced to regional events under this programme.',
     ],
   },
   {

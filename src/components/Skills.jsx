@@ -3,19 +3,19 @@ import Section from './Section.jsx'
 const GROUPS = [
   {
     label: 'Languages',
-    items: ['Java', 'C', 'Python', 'VHDL', 'MATLAB', 'R', 'JavaScript'],
+    items: ['Java', 'C', 'Python', 'JavaScript'],
   },
   {
-    label: 'Embedded & Hardware',
-    items: ['ATmega', 'Arduino', 'Altium', 'LTspice', 'Proteus', 'Intel Quartus II', 'Microchip Studio', 'QuestaSim'],
+    label: 'Frameworks & Tools',
+    items: ['React.js', 'Git', 'Maven', 'JUnit', 'Figma', 'AWS'],
   },
   {
-    label: 'Web & Software',
-    items: ['React', 'HTML/CSS', 'Maven', 'JUnit', 'PyQt6', 'Figma'],
+    label: 'Hardware & EDA',
+    items: ['Atmel AVR', 'Altium Designer', 'LTspice', 'Arduino IDE', 'Quartus Prime'],
   },
   {
-    label: 'Tooling & Cloud',
-    items: ['Git & GitHub', 'VS Code', 'AWS', 'MATLAB', 'R Studio', 'Microsoft Office', 'Google Workspace', 'AutoCAD'],
+    label: 'Other',
+    items: ['MATLAB', 'VHDL', 'PyQt'],
   },
 ]
 
