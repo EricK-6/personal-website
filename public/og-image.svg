@@ -54,7 +54,7 @@
   <text x="695" y="411" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="500" fill="#60a5fa" text-anchor="middle">C</text>
 
   <!-- URL -->
-  <text x="110" y="520" font-family="Inter, system-ui, sans-serif" font-size="20" fill="#52525b">erick-6.github.io/personal-website</text>
+  <text x="110" y="520" font-family="Inter, system-ui, sans-serif" font-size="20" fill="#52525b">erick-6.github.io/edk.portfolio</text>
 
   <!-- Open to internships badge -->
   <rect x="830" y="490" width="280" height="48" rx="24" fill="#052e16" stroke="#16a34a40" stroke-width="1"/>
