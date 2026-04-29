@@ -2,6 +2,7 @@ import Section from './Section.jsx'
 import { useState } from 'react'
 
 const EMAIL = 'dohyunkim290106@gmail.com'
+const FORMSPREE_ENDPOINT = 'REPLACE_WITH_YOUR_FORMSPREE_ENDPOINT' // e.g. https://formspree.io/f/xxxxxxxx
 
 function isValidEmail(v) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
@@ -13,6 +14,7 @@ export default function Contact() {
   const [subject, setSubject] = useState('')
   const [message, setMessage] = useState('')
   const [errors, setErrors] = useState({})
+  const [status, setStatus] = useState('idle') // idle | sending | success | error
 
   const validate = () => {
     const e = {}
@@ -23,16 +25,27 @@ export default function Contact() {
     return e
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const errs = validate()
     if (Object.keys(errs).length) { setErrors(errs); return }
     setErrors({})
-    const params = new URLSearchParams()
-    if (subject) params.set('subject', subject)
-    const body = `${message}\n\n— ${name} <${email}>`.trim()
-    params.set('body', body)
-    window.location.href = `mailto:${EMAIL}?${params.toString()}`
+    setStatus('sending')
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ name, email, subject, message }),
+      })
+      if (res.ok) {
+        setStatus('success')
+        setName(''); setEmail(''); setSubject(''); setMessage('')
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -40,7 +53,7 @@ export default function Contact() {
       id="contact"
       kicker="Contact"
       title="Let's talk"
-      subtitle="The fastest way to reach me is email. Fill in the form and I'll open your email client prefilled."
+      subtitle="Fill in the form and I'll get back to you, or reach me directly via the links below."
     >
       <div className="grid gap-8 md:grid-cols-5">
         <div className="md:col-span-2 space-y-4">
@@ -50,12 +63,23 @@ export default function Contact() {
         </div>
 
         <form className="md:col-span-3 card space-y-4" onSubmit={handleSubmit} noValidate>
+          {status === 'success' && (
+            <div className="rounded-lg bg-emerald-50 border border-emerald-200 px-4 py-3 text-sm text-emerald-800 dark:bg-emerald-950/40 dark:border-emerald-800 dark:text-emerald-300">
+              Message sent — I'll be in touch soon!
+            </div>
+          )}
+          {status === 'error' && (
+            <div className="rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-800 dark:bg-red-950/40 dark:border-red-800 dark:text-red-300">
+              Something went wrong. Try emailing me directly.
+            </div>
+          )}
+
           <div className="grid gap-4 sm:grid-cols-2">
             <Field label="Your name" error={errors.name}>
               <input
                 type="text"
                 value={name}
-                onChange={(e) => { setName(e.target.value); setErrors((prev) => ({ ...prev, name: '' })) }}
+                onChange={(e) => { setName(e.target.value); setErrors((p) => ({ ...p, name: '' })) }}
                 className={inputClass(errors.name)}
                 placeholder="Jane Recruiter"
               />
@@ -64,7 +88,7 @@ export default function Contact() {
               <input
                 type="email"
                 value={email}
-                onChange={(e) => { setEmail(e.target.value); setErrors((prev) => ({ ...prev, email: '' })) }}
+                onChange={(e) => { setEmail(e.target.value); setErrors((p) => ({ ...p, email: '' })) }}
                 className={inputClass(errors.email)}
                 placeholder="jane@example.com"
               />
@@ -82,19 +106,18 @@ export default function Contact() {
           <Field label="Message" error={errors.message}>
             <textarea
               value={message}
-              onChange={(e) => { setMessage(e.target.value); setErrors((prev) => ({ ...prev, message: '' })) }}
+              onChange={(e) => { setMessage(e.target.value); setErrors((p) => ({ ...p, message: '' })) }}
               rows={5}
               className={`${inputClass(errors.message)} resize-y min-h-[120px]`}
               placeholder="Hi Eric, …"
             />
           </Field>
           <div className="flex flex-wrap items-center gap-3">
-            <button type="submit" className="btn-primary">Open in email client</button>
+            <button type="submit" disabled={status === 'sending'} className="btn-primary disabled:opacity-60">
+              {status === 'sending' ? 'Sending…' : 'Send message'}
+            </button>
             <a href={`mailto:${EMAIL}`} className="btn-secondary">Just email me directly</a>
           </div>
-          <p className="text-xs text-zinc-500 dark:text-zinc-500">
-            This form opens your default email app — no data is stored or sent through a server.
-          </p>
         </form>
       </div>
     </Section>

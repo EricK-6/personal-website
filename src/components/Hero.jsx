@@ -32,7 +32,7 @@ export default function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a href="/CV.pdf" download className="btn-primary" aria-label="Download CV as PDF">
+            <a href="./CV.pdf" download className="btn-primary" aria-label="Download CV as PDF">
               <DownloadIcon /> Download CV
             </a>
             <a href="#projects" className="btn-secondary">
