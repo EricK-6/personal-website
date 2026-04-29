@@ -6,22 +6,26 @@ export default function About() {
       <div className="grid gap-8 md:grid-cols-3">
         <div className="md:col-span-2 space-y-4 text-zinc-700 dark:text-zinc-300 leading-relaxed">
           <p>
-            I'm a penultimate-year Computer Systems Engineering (Hons) student at the
-            University of Auckland, focused on embedded systems with strong software
-            integration. I enjoy work that sits between hardware and software — the
-            firmware, the PCBs, and the interfaces that tie them together.
+            Kia ora! I'm a penultimate-year Computer Systems Engineering (Hons) student
+            at the University of Auckland, passionate about software development and
+            embedded systems. I enjoy work that lives at the boundary of hardware and
+            software — firmware, PCBs, and the interfaces that tie them together.
           </p>
           <p>
-            Recent projects range from an interactive AI-powered robot (3rd place at
-            the ECSE Design Competition) to an ATmega-based smart energy monitor and a
-            React site for the Korean Engineering Body at UoA. I'm comfortable across
-            the stack — C, Java, Python, React — and increasingly interested in cloud
-            (AWS Cloud Practitioner certified).
+            I've built hands-on experience across hardware–software integration and
+            application development: an AI-powered robot that placed 3rd at the ECSE
+            Design Competition, an ATmega-based smart energy monitor with a custom PCB,
+            a Python desktop analytics app that collapsed a full-day reporting workflow
+            into 30 seconds, and a React site now used by the Korean Engineering Body at
+            UoA. I'm comfortable across the stack — C, Java, Python, React — and
+            recently strengthened my cloud foundation with an AWS Cloud Practitioner
+            certification.
           </p>
           <p>
-            I'm looking for a summer 2026/27 internship where I can contribute to real
-            systems, ship useful code, and learn from strong engineers — embedded,
-            full-stack, or anywhere the two meet.
+            Outside of projects I teach robotics at ciLab, mentoring students aged 8–16
+            through embedded programming and competition strategy. I'm looking for a
+            summer 2026/27 internship where I can contribute to real systems and learn
+            from strong engineers — embedded, full-stack, or anywhere the two meet.
           </p>
         </div>
 

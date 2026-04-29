@@ -12,7 +12,7 @@
     "prebuild": "npm run copy-cv",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "rm -rf node_modules && npm ci && npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "react": "18.3.1",
