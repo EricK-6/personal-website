@@ -1,7 +1,6 @@
 export default function Hero() {
   return (
-    <section id="top" className="relative pt-16 pb-20 sm:pt-24 sm:pb-28">
-      {/* subtle background gradient */}
+    <section id="top" className="relative pt-12 pb-16 sm:pt-20 sm:pb-24">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[480px]
@@ -9,70 +8,213 @@ export default function Hero() {
                    dark:from-blue-950/30 dark:via-zinc-950 dark:to-transparent"
       />
       <div className="container-page">
-        <div className="max-w-3xl animate-fade-in-up">
-          <div className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/70 px-3 py-1 text-xs font-medium text-zinc-700 backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/60 dark:text-zinc-300">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-            </span>
-            Open to summer 2026/27 internships
-          </div>
-
-          <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.05]">
-            Dohyun <span className="text-zinc-500 dark:text-zinc-500">(</span>Eric<span className="text-zinc-500 dark:text-zinc-500">)</span> Kim
-          </h1>
-
-          <p className="mt-5 text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            Computer Systems Engineering student at the{' '}
-            <span className="font-medium text-zinc-900 dark:text-zinc-100">University of Auckland</span>.
-            I build at the boundary of{' '}
-            <span className="font-medium text-zinc-900 dark:text-zinc-100">embedded systems</span> and{' '}
-            <span className="font-medium text-zinc-900 dark:text-zinc-100">software</span> — microcontrollers,
-            PCBs, React front-ends, and the glue in between.
-          </p>
-
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a href="./CV.pdf" download className="btn-primary" aria-label="Download CV as PDF">
-              <DownloadIcon /> Download CV
-            </a>
-            <a href="#projects" className="btn-secondary">
-              View projects
-            </a>
-            <a href="#contact" className="btn-secondary">
-              Get in touch
-            </a>
-          </div>
-
-          <div className="mt-8 flex items-center gap-5 text-sm text-zinc-600 dark:text-zinc-400">
-            <a
-              href="https://github.com/EricK-6"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1.5 hover:text-zinc-900 dark:hover:text-zinc-100"
-            >
-              <GitHubIcon /> EricK-6
-            </a>
-            <a
-              href="https://www.linkedin.com/in/erick06/"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1.5 hover:text-zinc-900 dark:hover:text-zinc-100"
-            >
-              <LinkedInIcon /> erick06
-            </a>
-            <span className="inline-flex items-center gap-1.5">
-              <PinIcon /> Auckland, NZ
-            </span>
-          </div>
+        <div className="animate-fade-in-up grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          <NameTile />
+          <StatusTile />
+          <CVTile />
+          <StatsTile />
+          <AwardTile />
+          <SocialTile />
+          <SkillsTile />
         </div>
       </div>
     </section>
   )
 }
 
+const tile =
+  'rounded-2xl border border-zinc-200 bg-white/80 backdrop-blur-sm p-6 dark:border-zinc-800 dark:bg-zinc-900/60 transition-[transform,box-shadow,border-color,background-color] duration-200 ease-out hover:-translate-y-1 hover:shadow-lg hover:shadow-zinc-200/50 dark:hover:shadow-black/40'
+
+function NameTile() {
+  return (
+    <div className={`${tile} relative overflow-hidden sm:col-span-2 lg:col-span-3 lg:row-span-2 flex flex-col justify-between gap-6 min-h-[280px]`}>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-24 -right-24 h-80 w-80 rounded-full bg-gradient-to-br from-blue-400/25 via-indigo-400/15 to-transparent blur-3xl dark:from-blue-500/25 dark:via-indigo-500/15"
+      />
+      <div className="relative">
+        <div className="text-xs font-medium uppercase tracking-widest text-accent dark:text-accent-dark">
+          Computer Systems Engineering · UoA
+        </div>
+        <h1 className="mt-3 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.05]">
+          Dohyun <span className="text-zinc-400 dark:text-zinc-600">(</span>Eric<span className="text-zinc-400 dark:text-zinc-600">)</span> Kim
+        </h1>
+        <p className="mt-4 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-2xl">
+          I build at the boundary of{' '}
+          <span className="font-medium text-zinc-900 dark:text-zinc-100">embedded systems</span> and{' '}
+          <span className="font-medium text-zinc-900 dark:text-zinc-100">software</span> — microcontrollers,
+          PCBs, React front-ends, and the glue in between.
+        </p>
+      </div>
+      <div className="relative flex flex-wrap items-center gap-3">
+        <a href="#projects" className="btn-primary">
+          View projects
+        </a>
+        <a href="#contact" className="btn-secondary">
+          Get in touch
+        </a>
+      </div>
+    </div>
+  )
+}
+
+function StatusTile() {
+  return (
+    <div className={`${tile} bg-emerald-50/40 dark:bg-emerald-950/15 flex flex-col justify-between min-h-[136px]`}>
+      <div className="flex items-center gap-2">
+        <span className="relative flex h-2.5 w-2.5">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+          <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
+        </span>
+        <span className="text-xs font-medium uppercase tracking-widest text-emerald-700 dark:text-emerald-400">
+          Available
+        </span>
+      </div>
+      <div>
+        <div className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+          Open to internships
+        </div>
+        <div className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+          Summer 2026/27
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function CVTile() {
+  return (
+    <a
+      href="./CV.pdf"
+      download
+      aria-label="Download CV as PDF"
+      className={`${tile} group relative overflow-hidden bg-gradient-to-br from-blue-600 to-indigo-600 border-transparent text-white hover:from-blue-500 hover:to-indigo-500 dark:from-blue-600 dark:to-indigo-600 flex flex-col justify-between min-h-[136px]`}
+    >
+      <div className="flex items-center justify-between">
+        <span className="text-xs font-medium uppercase tracking-widest text-blue-100">
+          Resume
+        </span>
+        <DownloadIcon />
+      </div>
+      <div>
+        <div className="text-lg font-semibold">Download CV</div>
+        <div className="mt-1 text-sm text-blue-100">PDF · updated 2026</div>
+      </div>
+    </a>
+  )
+}
+
+function StatsTile() {
+  return (
+    <div className={`${tile} sm:col-span-2 flex flex-col justify-between min-h-[136px]`}>
+      <div className="text-xs font-medium uppercase tracking-widest text-zinc-500 dark:text-zinc-500">
+        At a glance
+      </div>
+      <dl className="mt-3 grid grid-cols-3 gap-4">
+        <Stat label="Location" value="Auckland, NZ" />
+        <Stat label="Graduating" value="Nov 2027" />
+        <Stat label="Focus" value="Embedded · Software" />
+      </dl>
+    </div>
+  )
+}
+
+function AwardTile() {
+  return (
+    <div className={`${tile} bg-amber-50/40 dark:bg-amber-950/15 flex flex-col justify-between min-h-[136px]`}>
+      <div className="flex items-center gap-1.5 text-amber-600 dark:text-amber-400">
+        <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+        <span className="text-xs font-medium uppercase tracking-widest">3rd place</span>
+      </div>
+      <div>
+        <div className="text-lg font-semibold text-zinc-900 dark:text-zinc-100 leading-tight">
+          ECSE Design
+        </div>
+        <div className="text-lg font-semibold text-zinc-900 dark:text-zinc-100 leading-tight">
+          Competition
+        </div>
+        <div className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">2025 · Winnie the Bot</div>
+      </div>
+    </div>
+  )
+}
+
+function SocialTile() {
+  return (
+    <div className={`${tile} flex flex-col justify-between min-h-[136px]`}>
+      <div className="text-xs font-medium uppercase tracking-widest text-zinc-500 dark:text-zinc-500">
+        Find me
+      </div>
+      <div className="space-y-2">
+        <a
+          href="https://github.com/EricK-6"
+          target="_blank"
+          rel="noreferrer"
+          className="flex items-center gap-2 text-sm text-zinc-700 hover:text-accent dark:text-zinc-300 dark:hover:text-accent-dark transition-colors"
+        >
+          <GitHubIcon /> EricK-6
+        </a>
+        <a
+          href="https://www.linkedin.com/in/erick06/"
+          target="_blank"
+          rel="noreferrer"
+          className="flex items-center gap-2 text-sm text-zinc-700 hover:text-accent dark:text-zinc-300 dark:hover:text-accent-dark transition-colors"
+        >
+          <LinkedInIcon /> erick06
+        </a>
+      </div>
+    </div>
+  )
+}
+
+const TECH = [
+  'C', 'Java', 'Python', 'JavaScript', 'React', 'AWS',
+  'ATmega', 'Altium', 'LTspice', 'PyQt6', 'Maven', 'JUnit',
+]
+
+function SkillsTile() {
+  return (
+    <div className={`${tile} sm:col-span-2 lg:col-span-4`}>
+      <div className="flex items-center justify-between gap-4">
+        <div className="text-xs font-medium uppercase tracking-widest text-zinc-500 dark:text-zinc-500">
+          Tech I work with
+        </div>
+        <a href="#skills" className="text-xs font-medium text-accent hover:underline dark:text-accent-dark">
+          See all →
+        </a>
+      </div>
+      <div className="mt-4 flex flex-wrap gap-2">
+        {TECH.map((t) => (
+          <span
+            key={t}
+            className="inline-flex items-center rounded-lg border border-zinc-200 bg-zinc-50 px-2.5 py-1 text-sm font-medium text-zinc-800 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200"
+          >
+            {t}
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function Stat({ label, value }) {
+  return (
+    <div>
+      <dt className="text-[10px] font-medium uppercase tracking-widest text-zinc-500 dark:text-zinc-500">
+        {label}
+      </dt>
+      <dd className="mt-1 text-sm font-medium text-zinc-900 dark:text-zinc-100">
+        {value}
+      </dd>
+    </div>
+  )
+}
+
 function DownloadIcon() {
   return (
-    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
       <polyline points="7 10 12 15 17 10" />
       <line x1="12" y1="15" x2="12" y2="3" />
@@ -90,14 +232,6 @@ function LinkedInIcon() {
   return (
     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
       <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.05-1.86-3.05-1.86 0-2.15 1.45-2.15 2.95v5.67H9.32V9h3.42v1.56h.05a3.75 3.75 0 0 1 3.38-1.86c3.61 0 4.28 2.38 4.28 5.47v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z" />
-    </svg>
-  )
-}
-function PinIcon() {
-  return (
-    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-      <circle cx="12" cy="10" r="3" />
     </svg>
   )
 }
