@@ -2,7 +2,7 @@ import Section from './Section.jsx'
 import { useState } from 'react'
 
 const EMAIL = 'dohyunkim290106@gmail.com'
-const FORMSPREE_ENDPOINT = 'REPLACE_WITH_YOUR_FORMSPREE_ENDPOINT' // e.g. https://formspree.io/f/xxxxxxxx
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mvzdebnb'
 
 function isValidEmail(v) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
