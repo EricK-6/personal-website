@@ -6,7 +6,7 @@ const ROLES = [
     title: 'Academic Team Executive',
     org: 'Korean Engineering Body (KEB) · University of Auckland',
     period: '2024 – Present',
-    image: './keb.png',
+    image: './keb.jpg',
     description:
       'Organize and lead tutorials for first-year engineering students, strengthening KEB\'s academic support and campus visibility.',
   },
@@ -14,7 +14,7 @@ const ROLES = [
     title: 'Mentor',
     org: 'Korean Engineering Body (KEB) · University of Auckland',
     period: '2024 – Present',
-    image: './keb.png',
+    image: './keb.jpg',
     description:
       'Support first-year students with academic guidance and social integration into university life.',
   },

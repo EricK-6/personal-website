@@ -18,7 +18,7 @@ export default function Education() {
           <img
             src="./uoa.png"
             alt="University of Auckland"
-            className="hidden sm:block h-16 w-16 flex-none rounded-lg object-contain bg-white ring-1 ring-zinc-200 dark:bg-zinc-100 dark:ring-zinc-800 p-1"
+            className="hidden sm:block h-28 w-28 flex-none rounded-xl object-contain bg-white ring-1 ring-zinc-200 dark:bg-zinc-100 dark:ring-zinc-800 p-2"
           />
           <div className="flex-1 min-w-0">
             <div className="flex flex-wrap items-baseline justify-between gap-2">

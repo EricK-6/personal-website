@@ -33,7 +33,7 @@ export default function Certifications() {
                   <img
                     src={c.image}
                     alt={c.name}
-                    className="h-14 w-14 flex-none rounded-lg object-contain bg-white ring-1 ring-zinc-200 dark:bg-zinc-100 dark:ring-zinc-800 p-1"
+                    className="h-24 w-24 flex-none rounded-xl object-contain bg-white ring-1 ring-zinc-200 dark:bg-zinc-100 dark:ring-zinc-800 p-2"
                   />
                 ) : (
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-orange-500 to-amber-500 text-white shadow-sm">
