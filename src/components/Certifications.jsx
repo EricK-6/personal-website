@@ -6,6 +6,7 @@ const CERTS = [
     name: 'AWS Certified Cloud Practitioner',
     issuer: 'Amazon Web Services',
     date: 'Apr 2026',
+    image: './aws_clf.webp',
     description:
       'Foundational cloud computing knowledge — AWS services, architecture, security, shared responsibility model, pricing, and cost optimization.',
     tags: ['EC2', 'S3', 'IAM', 'Lambda', 'VPC'],
@@ -28,13 +29,21 @@ export default function Certifications() {
             />
             <div className="relative flex items-start justify-between gap-4">
               <div className="flex items-start gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-orange-500 to-amber-500 text-white shadow-sm">
-                  <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M2 17l10 5 10-5" />
-                    <path d="M2 12l10 5 10-5" />
-                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                  </svg>
-                </div>
+                {c.image ? (
+                  <img
+                    src={c.image}
+                    alt={c.name}
+                    className="h-14 w-14 flex-none rounded-lg object-contain bg-white ring-1 ring-zinc-200 dark:bg-zinc-100 dark:ring-zinc-800 p-1"
+                  />
+                ) : (
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-orange-500 to-amber-500 text-white shadow-sm">
+                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M2 17l10 5 10-5" />
+                      <path d="M2 12l10 5 10-5" />
+                      <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                    </svg>
+                  </div>
+                )}
                 <div>
                   <h3 className="text-lg font-semibold leading-tight">{c.name}</h3>
                   <div className="mt-0.5 text-sm text-zinc-500 dark:text-zinc-500">{c.issuer}</div>

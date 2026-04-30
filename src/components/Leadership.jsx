@@ -6,6 +6,7 @@ const ROLES = [
     title: 'Academic Team Executive',
     org: 'Korean Engineering Body (KEB) · University of Auckland',
     period: '2024 – Present',
+    image: './keb.png',
     description:
       'Organize and lead tutorials for first-year engineering students, strengthening KEB\'s academic support and campus visibility.',
   },
@@ -13,6 +14,7 @@ const ROLES = [
     title: 'Mentor',
     org: 'Korean Engineering Body (KEB) · University of Auckland',
     period: '2024 – Present',
+    image: './keb.png',
     description:
       'Support first-year students with academic guidance and social integration into university life.',
   },
@@ -24,9 +26,20 @@ export default function Leadership() {
       <div className="grid gap-4 sm:grid-cols-2">
         {ROLES.map((r, i) => (
           <Reveal key={r.title} delay={i * 80} className="card">
-            <h3 className="font-semibold">{r.title}</h3>
-            <div className="text-sm text-zinc-500 dark:text-zinc-500">{r.org}</div>
-            <div className="mt-1 text-xs text-zinc-500 dark:text-zinc-500">{r.period}</div>
+            <div className="flex gap-4">
+              {r.image && (
+                <img
+                  src={r.image}
+                  alt={r.org}
+                  className="h-14 w-14 flex-none rounded-lg object-cover ring-1 ring-zinc-200 dark:ring-zinc-800"
+                />
+              )}
+              <div className="flex-1 min-w-0">
+                <h3 className="font-semibold">{r.title}</h3>
+                <div className="text-sm text-zinc-500 dark:text-zinc-500">{r.org}</div>
+                <div className="mt-1 text-xs text-zinc-500 dark:text-zinc-500">{r.period}</div>
+              </div>
+            </div>
             <p className="mt-3 text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
               {r.description}
             </p>

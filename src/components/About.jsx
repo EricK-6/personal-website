@@ -8,25 +8,15 @@ export default function About() {
         <Reveal className="md:col-span-2 space-y-4 text-zinc-700 dark:text-zinc-300 leading-relaxed">
           <p>
             Kia ora! I'm a penultimate-year Computer Systems Engineering (Hons) student
-            at the University of Auckland, passionate about software development and
-            embedded systems. I enjoy work that lives at the boundary of hardware and
+            at the University of Auckland, drawn to the boundary between hardware and
             software — firmware, PCBs, and the interfaces that tie them together.
+            Comfortable across C, Java, Python, and React, with an AWS Cloud
+            Practitioner cert backing the cloud side.
           </p>
           <p>
-            I've built hands-on experience across hardware–software integration and
-            application development: an AI-powered robot that placed 3rd at the ECSE
-            Design Competition, an ATmega-based smart energy monitor with a custom PCB,
-            a Python desktop analytics app that collapsed a full-day reporting workflow
-            into 30 seconds, and a React site now used by the Korean Engineering Body at
-            UoA. I'm comfortable across the stack — C, Java, Python, React — and
-            recently strengthened my cloud foundation with an AWS Cloud Practitioner
-            certification.
-          </p>
-          <p>
-            Outside of projects I teach robotics at ciLab, mentoring students aged 8–16
-            through embedded programming and competition strategy. I'm looking for a
-            summer 2026/27 internship where I can contribute to real systems and learn
-            from strong engineers — embedded, full-stack, or anywhere the two meet.
+            Outside of coursework I teach robotics at ciLab to students aged 8–16, and
+            I'm looking for a summer 2026/27 internship where I can contribute to real
+            systems — embedded, full-stack, or anywhere the two meet.
           </p>
         </Reveal>
 
