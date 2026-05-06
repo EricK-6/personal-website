@@ -6,17 +6,26 @@ const CERTS = [
     name: 'AWS Certified Cloud Practitioner',
     issuer: 'Amazon Web Services',
     date: 'Apr 2026',
-    image: './aws_clf.webp',
+    image: './clf.png',
     description:
-      'Foundational cloud computing knowledge — AWS services, architecture, security, shared responsibility model, pricing, and cost optimization.',
+      'Proficiency in AWS core services and cloud architecture principles — Well-Architected Framework, security best practices, and cost optimisation.',
     tags: ['EC2', 'S3', 'IAM', 'Lambda', 'VPC'],
+  },
+  {
+    name: 'AWS Certified AI Practitioner',
+    issuer: 'Amazon Web Services',
+    date: 'May 2026',
+    image: './aif.png',
+    description:
+      'Foundational understanding of AI, machine learning, and generative AI concepts, including practical application of AWS AI/ML services.',
+    tags: ['SageMaker', 'Bedrock', 'Rekognition'],
   },
 ]
 
 export default function Certifications() {
   return (
     <Section id="certifications" kicker="Certifications" title="Credentials">
-      <div className="grid gap-4">
+      <div className="grid gap-4 sm:grid-cols-2">
         {CERTS.map((c, i) => (
           <Reveal
             key={c.name}
@@ -33,7 +42,7 @@ export default function Certifications() {
                   <img
                     src={c.image}
                     alt={c.name}
-                    className="h-24 w-24 flex-none rounded-xl object-contain bg-white ring-1 ring-zinc-200 dark:bg-zinc-100 dark:ring-zinc-800 p-2"
+                    className="h-32 w-auto flex-none rounded-xl object-contain drop-shadow-md"
                   />
                 ) : (
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-orange-500 to-amber-500 text-white shadow-sm">

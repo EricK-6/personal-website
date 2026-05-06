@@ -2,12 +2,13 @@ import Section from './Section.jsx'
 import Reveal from './Reveal.jsx'
 
 const COURSEWORK = [
-  'Computer Systems Design',
-  'Object Oriented Programming',
-  'Electronics',
-  'Electrical Systems',
-  'Mathematical Modelling',
+  'Computer Architecture',
+  'AI & Machine Learning',
+  'Hardware-Software Systems',
+  'Software Architecture',
+  'Digital Systems Design',
   'Software Quality Assurance',
+  'Object Oriented Programming',
 ]
 
 export default function Education() {
@@ -18,7 +19,7 @@ export default function Education() {
           <img
             src="./uoa.png"
             alt="University of Auckland"
-            className="hidden sm:block h-28 w-28 flex-none rounded-xl object-contain bg-white ring-1 ring-zinc-200 dark:bg-zinc-100 dark:ring-zinc-800 p-2"
+            className="hidden sm:block h-28 w-auto flex-none rounded-xl object-contain drop-shadow-md"
           />
           <div className="flex-1 min-w-0">
             <div className="flex flex-wrap items-baseline justify-between gap-2">
@@ -32,7 +33,7 @@ export default function Education() {
               Bachelor of Engineering (Honours) · Computer Systems Engineering
             </div>
             <div className="mt-1 text-sm text-zinc-500 dark:text-zinc-500">
-              Concentration: Embedded systems with strong software integration
+              Concentration: Embedded Systems & Intelligent Software
             </div>
 
             <div className="mt-6">

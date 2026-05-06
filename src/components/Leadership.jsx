@@ -31,7 +31,7 @@ export default function Leadership() {
                 <img
                   src={r.image}
                   alt={r.org}
-                  className="h-14 w-14 flex-none rounded-lg object-cover ring-1 ring-zinc-200 dark:ring-zinc-800"
+                  className="h-14 w-14 flex-none rounded-full object-cover"
                 />
               )}
               <div className="flex-1 min-w-0">
